@@ -1,0 +1,24 @@
+@echo off
+title Discord Image Cache Unconverter
+echo ----------------------------------------------------------------------------------------------------------------
+echo   THIS TOOL MUST BE RUN ON YOUR C: DRIVE! FILES MAY BECOME CORRUPTED IF IT IS NOT! USE AT YOUR OWN DISCRETION!
+echo ----------------------------------------------------------------------------------------------------------------
+echo Please only use this tool if you have previously run DiscordCacheConverter and have run into issues. Are you sure you want to continue?
+echo 1) Yes
+echo 2) No (exits program)
+echo ------
+echo Your selection: 
+set /p a=
+IF %a%==1 goto yes
+IF %a%==2 goto no
+
+:yes
+cd C:\Users\%USERNAME%\AppData\Roaming\discord\Cache\
+ren * *.
+echo Your Discord image cache has been unconverted from PNG. The 'Cache' folder will open upon exit; image thumbnails may still appear although files no longer have the .PNG extension.
+echo Thanks for checking out my tool!
+pause
+explorer C:\Users\%USERNAME%\AppData\Roaming\discord\Cache\
+
+:no
+exit
